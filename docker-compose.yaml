@@ -12,3 +12,13 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: anas123
     volumes:
       - ./db_data/:/data/db/
+
+
+  backend:
+    build: .
+    ports:
+      - "8001:8001"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MONGO_CONNECTION_STRING=${MONGO_CONNECTION_STRING}
+      - MONGO_DB_NAME=${MONGO_DB_NAME}
